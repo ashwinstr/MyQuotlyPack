@@ -69,7 +69,7 @@ get_branch () {
 }
 
 get_ziplink () {
-    echo "https://${GitHubName}:${{ secrets.GH_TOKEN }}@github.com/${{ secrets.CREDS }}$(get_branch)"
+    echo "https://${GitHubName}@github.com/ashwinstr/MyQuotly$(get_branch)"
 }
 
 _setup_repo () {
