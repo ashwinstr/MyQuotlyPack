@@ -18,8 +18,10 @@
 # error precaution.
 set -e
 
-WORK_DIR="userbot"
+WORK_DIR="quotlybot"
 mkdir -p $WORK_DIR
+GitHubMail: "ashwinstr@gmail.com"
+GitHubName: "ashwinstr"
 
 disp () {
     echo "-----> $*"
@@ -61,20 +63,13 @@ get_branch () {
     then
         branch=$(echo $PREF_BRANCH | xargs)
     else
-        branch=alpha
+        branch=main
     fi
     echo "/archive/refs/heads/$branch.zip"
 }
 
 get_ziplink () {
-    local regex
-    regex='(https?)://github.com/.+/.+'
-    if [[ $UPSTREAM_REPO =~ $regex ]]
-    then 
-        echo "${UPSTREAM_REPO}$(get_branch)"
-    else
-        echo "$(echo "aHR0cHM6Ly9naXRodWIuY29tL2NvZGUtcmdiL1VTRVJHRS1Y" | base64 -d)$(get_branch)"
-    fi
+    echo "https://${GitHubName}:${{ secrets.GH_TOKEN }}@github.com$(get_branch)"
 }
 
 _setup_repo () {
@@ -93,9 +88,9 @@ _setup_repo () {
 
 _startbot () {
     local bot_dir
-    bot_dir=$(cd $WORK_DIR && ls) && mv "$WORK_DIR/$bot_dir" "USERGE-X"
+    bot_dir=$(cd $WORK_DIR && ls) && mv "$WORK_DIR/$bot_dir" "quotly"
     rm -rf $WORK_DIR
-    cd "USERGE-X"
+    cd "quotly"
     git init > /dev/null 2>&1
     echo -e ">><< --- >><<  Starting [X]  >><< --- >><<\n" | indent
     bash run
