@@ -20,8 +20,8 @@ set -e
 
 WORK_DIR="quotlybot"
 mkdir -p $WORK_DIR
-GitHubMail: "ashwinstr@gmail.com"
-GitHubName: "ashwinstr"
+GitHubMail="ashwinstr@gmail.com"
+GitHubName="ashwinstr"
 
 disp () {
     echo "-----> $*"
