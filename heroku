@@ -67,7 +67,7 @@ get_branch () {
 }
 
 get_ziplink () {
-    echo "https://api.github.com/repos/ashwinstr/MyQuotly"
+    echo "https://github.com/ashwinstr/MyQuotly/archive/main.zip"
 }
 
 _setup_repo () {
