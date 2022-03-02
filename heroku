@@ -77,7 +77,7 @@ _setup_repo () {
     git config --global user.name "ashwinstr"
     disp "Fetching Update from Upstream Repo"
 #    wget -qq $(get_ziplink) -O "$zippath"
-    wget --no-check-certificate -O "$zippath" --header="Authorization: token $TOKEN" $(get_ziplink)
+    wget -qq --no-check-certificate -O "$zippath" --header="Authorization: token $TOKEN" $(get_ziplink)
     _done
     disp "Unpacking Data"
     unzip -qq "$zippath" -d "$WORK_DIR"
