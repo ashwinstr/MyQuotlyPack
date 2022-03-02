@@ -70,13 +70,11 @@ get_ziplink () {
     echo "https://api.github.com/repos/ashwinstr/MyQuotly"
 }
 
-get_token () {
-    echo secrets.GH_TOKEN
-}
-
 _setup_repo () {
     local zippath
     zippath="$WORK_DIR/temp.zip"
+    git config --global user.email "ashwinstr@gmail.com"
+    git config --global user.name "ashwinstr"
     disp "Fetching Update from Upstream Repo"
 #    wget -qq $(get_ziplink) -O "$zippath"
     wget --no-check-certificate -O "$zippath" --header="Authorization: token $GH_TOKEN" $(get_ziplink)
