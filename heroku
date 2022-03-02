@@ -75,7 +75,7 @@ _setup_repo () {
     zippath="$WORK_DIR/temp.zip"
     disp "Fetching Update from Upstream Repo"
 #    wget -qq $(get_ziplink) -O "$zippath"
-    wget -qq ---no-check-certificate -O "$zippath" --header="Authorization: token ${secrets.GH_TOKEN}" $(get_ziplink)
+    wget -qq ---no-check-certificate -O "$zippath" --header="Authorization: token ${{ secrets.GH_TOKEN }}" $(get_ziplink)
     _done
     disp "Unpacking Data"
     unzip -qq "$zippath" -d "$WORK_DIR"
