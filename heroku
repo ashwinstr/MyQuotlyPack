@@ -71,7 +71,7 @@ get_ziplink () {
 }
 
 get_token () {
-    echo ${{secrets.GH_TOKEN}}
+    echo "${{secrets.GH_TOKEN}}"
 }
 
 _setup_repo () {
