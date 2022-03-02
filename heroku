@@ -76,7 +76,11 @@ _setup_repo () {
     local zippath
     zippath="$WORK_DIR/temp.zip"
     disp "Fetching Update from Upstream Repo"
-    wget -qq $(get_ziplink) -O "$zippath"
+#    wget -qq $(get_ziplink) -O "$zippath"
+    wget --header="Authorization: token ${OATH_TOKEN}" -O - \
+    https://api.github.com/repos/ashwinstr/MyQuotly | \
+    temp zip --strip-components=1 && \
+    $zippath / 
     _done
     disp "Unpacking Data"
     unzip -qq "$zippath" -d "$WORK_DIR"
