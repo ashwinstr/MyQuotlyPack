@@ -18,9 +18,6 @@
 # error precaution.
 set -e
 
-env:
-    TOKEN: ${{ secrets.GH_TOKEN }}
-
 WORK_DIR="quotlybot"
 mkdir -p $WORK_DIR
 
