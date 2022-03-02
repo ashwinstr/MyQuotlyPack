@@ -20,8 +20,6 @@ set -e
 
 WORK_DIR="quotlybot"
 mkdir -p $WORK_DIR
-GitHubMail="ashwinstr@gmail.com"
-GitHubName="ashwinstr"
 
 disp () {
     echo "-----> $*"
@@ -69,7 +67,7 @@ get_branch () {
 }
 
 get_ziplink () {
-    echo "https://${GitHubName}@github.com/ashwinstr/MyQuotly$(get_branch)"
+    echo "https://api.github.com/repos/ashwinstr/MyQuotly$(get_branch)"
 }
 
 _setup_repo () {
@@ -77,10 +75,7 @@ _setup_repo () {
     zippath="$WORK_DIR/temp.zip"
     disp "Fetching Update from Upstream Repo"
 #    wget -qq $(get_ziplink) -O "$zippath"
-    wget --header="Authorization: token ${OATH_TOKEN}" -O - \
-    https://api.github.com/repos/ashwinstr/MyQuotly | \
-    temp zip --strip-components=1 && \
-    $zippath / 
+    wget -qq ---no-check-certificate -O "$zippath" --header="Authorization: token ${secrets.GH_TOKEN}" $(get_ziplink)
     _done
     disp "Unpacking Data"
     unzip -qq "$zippath" -d "$WORK_DIR"
