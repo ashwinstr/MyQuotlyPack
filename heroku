@@ -70,12 +70,16 @@ get_ziplink () {
     echo "https://api.github.com/repos/ashwinstr/MyQuotly"
 }
 
+get_token () {
+    echo ${{secrets.GH_TOKEN}}
+}
+
 _setup_repo () {
     local zippath
     zippath="$WORK_DIR/temp.zip"
     disp "Fetching Update from Upstream Repo"
 #    wget -qq $(get_ziplink) -O "$zippath"
-    wget --no-check-certificate -O "$zippath" --header="Authorization: token $(secrets.GH_TOKEN)" $(get_ziplink)
+    wget --no-check-certificate -O "$zippath" --header="Authorization: token $get_token" $(get_ziplink)
     _done
     disp "Unpacking Data"
     unzip -qq "$zippath" -d "$WORK_DIR"
