@@ -1,1 +1,1 @@
-worker: bash start.yml
+worker: bash start
