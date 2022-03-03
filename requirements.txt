@@ -2,7 +2,7 @@ dnspython
 heroku3
 numpy
 Pillow
-pyrogram==1.4.7
+git+https://github.com/ashwinstr/pyrogram.git@x21
 selenium
 telegraph
 TgCrypto
