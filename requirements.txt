@@ -2,6 +2,7 @@ dnspython
 heroku3
 numpy
 Pillow
+pychrome
 git+https://github.com/ashwinstr/pyrogram.git@x21
 selenium
 telegraph
