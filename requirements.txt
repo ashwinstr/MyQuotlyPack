@@ -1,5 +1,6 @@
 dnspython
 heroku3
+motor
 numpy
 Pillow
 pychrome
