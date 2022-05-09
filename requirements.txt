@@ -1,9 +1,10 @@
+aiohttp[speedups]>=3.7.3
 dnspython
 heroku3
 motor
 numpy
 Pillow
-pychrome
+pymongo
 git+https://github.com/ashwinstr/pyrogram.git@x21
 selenium
 telegraph
